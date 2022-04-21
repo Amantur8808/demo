@@ -1,0 +1,7 @@
+**.terraform
+**.history
+**terraform.tfstate
+**terraform.tfstate.backup
+**.terraform.lock.hcl
+**file
+**documents
