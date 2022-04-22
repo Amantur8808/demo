@@ -1,7 +1,7 @@
 module "lambda" {
   source = "../aws_lambda"
   lambda_function = [{
-    filename    = "./python/lambda_function.zip"
+    filename    = "${path.module}/python/lambda_function.zip"
     role        = module.lambda.lambdarole
     lambda_name = var.lambda_name
     handler     = var.handler
