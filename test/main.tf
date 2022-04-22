@@ -1,7 +1,7 @@
 module "lambda" {
   source = "../aws_lambda"
   lambda_function = [{
-    filename    = "${path.module}/python/lambda_function.zip"
+    filename    = "${path.root}/python/lambda_function.zip"
     role        = module.lambda.lambdarole
     lambda_name = var.lambda_name
     handler     = var.handler
@@ -61,8 +61,8 @@ resource "aws_iam_role_policy_attachment" "role-policy-attachment" {
 
 data "archive_file" "zip_the_python_code" {
   type        = var.archive_type
-  source_dir  = "${path.module}/python/"
-  output_path = "${path.module}/python/lambda_function.zip"
+  source_dir  = "${path.root}/python/"
+  output_path = "${path.root}/python/lambda_function.zip"
 }
 
 resource "aws_lambda_permission" "allow_cloudwatch_to_call_check_foo" {
